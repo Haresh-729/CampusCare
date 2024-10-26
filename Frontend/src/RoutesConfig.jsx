@@ -4,6 +4,8 @@ import {  useSelector } from 'react-redux';
 
 import { Navbar, Error, Hero, Services, AboutUs, Footer, ContactUs, Login } from './components';
 import { heroapi, servicesData, popularsales, toprateslaes, highlight, sneaker, story, footerAPI, aboutData} from "./data/data";
+import ExamplePage from './components/Dashboard/ExamplePage';
+import Example2 from './components/Dashboard/Example2';
 
 
 
@@ -17,6 +19,8 @@ const RoutesConfig = () => {
             <Route path="/about" element={[<Navbar heroapi={heroapi}/>, <AboutUs/>, <Footer heroapi={heroapi}/>]} />
             <Route path="/contact" element={[<Navbar heroapi={heroapi}/>, <ContactUs/>, <Footer heroapi={heroapi}/>]} />
             <Route path="/login" element={[<Navbar heroapi={heroapi}/>, <Login/>, <Footer heroapi={heroapi}/>]} />            
+            <Route path="/example1" element={[< ExamplePage/>]} />            
+            <Route path="/example2" element={[< Example2/>]} />            
             {/* <Route path="/register/:flag" element={<RegisterLogin/>}/>
             <Route path="/verify_email" element={<VerifyEmail/>}/> */}
 
