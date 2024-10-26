@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       added_by: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Users', // References the Users table (for admin/user who added the hospital)
           key: 'user_id',

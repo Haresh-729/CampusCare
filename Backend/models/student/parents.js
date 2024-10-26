@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BIGINT,
         allowNull: false,
         references: {
-          model: 'Student', // References the Student table
+          model: 'Students', // References the Student table
           key: 'sap_id',
         },
         onDelete: 'CASCADE',

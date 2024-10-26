@@ -5,6 +5,9 @@ import service1 from '../assets/landing/service1.svg';
 import service2 from '../assets/landing/service2.svg';
 import service3 from '../assets/landing/service3.svg';
 import service4 from '../assets/landing/service4.svg';
+import medicine from '../assets/Dashboard/medicine.svg';
+import complete from '../assets/Dashboard/complete.png';
+import pending from '../assets/Dashboard/pending.png';
 
 // import hightlight//img from "../assets_dump/hightlight//img.png";
 // import sneakershoe from "../assets_dump/sneaker.png";
@@ -570,4 +573,69 @@ const footerAPI = {
 };
 
 
-export { heroapi, servicesData, footerAPI, story, sneaker, highlight, toprateslaes, popularsales, aboutData, homePopular, homeTopSearches, homeStreatSmart };
+const user = {
+  name: 'Tanvi Kinjale',
+  role: 'Student',
+  profilePicture: 'profile_url_here'
+};
+
+const healthData = {
+  heartRate: 80,
+  bloodPressure: '100 mmHg',
+  isolationStatus: 'Safe'
+};
+
+const recentRecords = [
+  { date: '2024-08-15', checkUpType: 'Blood Test', doctorFacility: 'Dr. Jane Smith', results: 'Normal' },
+  { date: '2024-07-28', checkUpType: 'Vision Test', doctorFacility: 'University Lab', results: '20/20 Vision' },
+  { date: '2024-07-10', checkUpType: 'Dental Check-Up', doctorFacility: 'Dr. Emily Davis', results: 'No cavities' },
+  { date: '2024-06-25', checkUpType: 'General Health Check-Up', doctorFacility: 'Dr. Robert Clark', results: 'Normal' }
+];
+
+const currentTreatments = [
+  {
+    img: medicine,
+    name: 'Paracetamol 500mg',
+    weeksLeft: 3,
+    weeksDone: 1
+  },
+  {
+    img: medicine,
+    name: 'Paracetamol 500mg',
+    weeksLeft: 3,
+    weeksDone: 1
+  },
+  {
+    img: medicine,
+    name: 'Paracetamol 500mg',
+    weeksLeft: 3,
+    weeksDone: 1
+  },
+];
+
+const deliveryInfo = {
+  time: '5:00 PM'
+};
+
+const orderHistory = {
+  date: '10/04/2024'
+};
+
+const trackingInfo = [
+  { status: 'Order Placed.', time: '24/10/2024 02:00 PM', statusImg: complete },
+  { status: 'Order Acknowledged', time: '24/10/2024 02:30 PM', statusImg: complete},
+  { status: 'Batch Ordered', time: '24/10/2024 08:00 PM', statusImg: complete },
+  { status: 'Batch Received', time: '25/10/2024 04:00 PM', statusImg: complete },
+  { status: 'Ready to Collect', time: '25/10/2024 05:00 PM', statusImg: complete }
+];
+
+const quickLinks = [
+  { label: 'Acknowledge Delivery', href: '/acknowledge' },
+  { label: 'Request Support', href: '/support' },
+  { label: 'View History', href: '/history' }
+];
+
+
+
+
+export { user, healthData, recentRecords, currentTreatments, deliveryInfo, orderHistory,trackingInfo, quickLinks, heroapi, servicesData, footerAPI, story, sneaker, highlight, toprateslaes, popularsales, aboutData, homePopular, homeTopSearches, homeStreatSmart };

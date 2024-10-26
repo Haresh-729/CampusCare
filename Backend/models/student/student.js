@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Student = sequelize.define('Student', {
+    const Student = sequelize.define('Students', {
       sap_id: {
         type: DataTypes.BIGINT,
         allowNull: false,
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Department', // References the Department table
+          model: 'Departments', // References the Department table
           key: 'dept_id',
         },
         onDelete: 'CASCADE',

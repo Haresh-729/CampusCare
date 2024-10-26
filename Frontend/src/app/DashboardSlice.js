@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 const localData = JSON.parse(localStorage.getItem("account"));
 const initialState = {
     dashboardMenuState: false,
-    dashboardFeature: "home", //home, store, notification, messages, profile
+    dashboardFeature: "dashboard", //dashboard, orders, appointment, messages, profile
     account: localData ? localData : [],
     isLoggedIn: localData ? localData.isLoggedIn :false,
     profileData: [],
@@ -33,7 +33,7 @@ const DashboardSlice = createSlice({
             state.profileData = [];
             state.isLoggedIn = false;
             state.dashboardMenuState = false;
-            state.dashboardFeature = "home";
+            state.dashboardFeature = "dashboard";
             // localStorage.removeItem("account");
             localStorage.clear();
         },

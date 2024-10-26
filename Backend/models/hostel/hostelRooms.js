@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'Hostel', // References the Hostel table
+          model: 'Hostels', // References the Hostel table
           key: 'hostel_id',
         },
         onDelete: 'CASCADE',
