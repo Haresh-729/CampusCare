@@ -6,6 +6,7 @@ const userRoutes = require('./routes/user/userRoutes');
 const appointmentRoutes = require('./routes/appointments/appointmentsRoutes');
 const hostelRoutes = require('./routes/hostel/hostelRoutes');
 const hospitalRoutes = require('./routes/hospital/hospitalRoutes');
+const studentRoutes = require('./routes/student/studentRoutes');
 
 
 const app = express();
@@ -29,7 +30,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./routes/user/*.js', './routes/appointments/*.js', './routes/hostel/*.js', './routes/hospital/*.js']
+  apis: ['./routes/user/*.js', './routes/appointments/*.js', './routes/hostel/*.js', './routes/hospital/*.js','./routes/student/*.js']
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -41,9 +42,10 @@ app.get('/', (req, res) => {
   res.send('Welcome to the API. Use /api-docs for Swagger documentation.');
 });
 app.use('/api/users', userRoutes);
-app.use('/api/appointments', appointmentRoutes); // Appointment routes
-app.use('/api/hostels', hostelRoutes);       // Hostel routes
-app.use('/api/hospitals', hospitalRoutes);   // Hospital routes
+app.use('/api/appointments', appointmentRoutes);
+app.use('/api/hostels', hostelRoutes);   
+app.use('/api/hospitals', hospitalRoutes); 
+app.use('/api/students', studentRoutes);
 
 // Sync Database
 db.sequelize.sync().then(() => { //{ alter: true } force: true - drop existing and create new; alter: true - make changes without deleting the data

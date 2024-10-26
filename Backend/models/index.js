@@ -22,5 +22,8 @@ db.AmbulanceStaff = require('./hospital/ambulanceStaff')(sequelize, Sequelize);
 db.Doctor = require('./hospital/doctor')(sequelize, Sequelize);
 db.Appointments = require('./appointments/appointment')(sequelize, Sequelize);
 db.AppointmentRemarks = require('./appointments/appointmentRemarks')(sequelize, Sequelize);
+db.Departments = require('./student/department')(sequelize, Sequelize);
+db.Students = require('./student/student')(sequelize, Sequelize);
+db.Parents = require('./student/parents')(sequelize, Sequelize);
 
 module.exports = db;
