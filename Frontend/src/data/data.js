@@ -1,4 +1,10 @@
 // import hero//img from "../assets_dump/hero.png";
+import logo from "../assets/landing/logo.svg";
+import heroBg from "../assets/landing/heroBg.png";
+import service1 from '../assets/landing/service1.svg';
+import service2 from '../assets/landing/service2.svg';
+import service3 from '../assets/landing/service3.svg';
+import service4 from '../assets/landing/service4.svg';
 
 // import hightlight//img from "../assets_dump/hightlight//img.png";
 // import sneakershoe from "../assets_dump/sneaker.png";
@@ -55,10 +61,12 @@
 // import about from '../assets/about.png'
 
 const heroapi = {
-  title: "Play With Electric Nike",
-  subtitle: "Adapt 2.0 Sneakers",
-  //img: hero//img,
-  btntext: "Explore Product",
+  title1: 'Your Wellness,',
+  title2: 'Our Mission',
+  subtitle: "we are committed to providing comprehensive healthcare services tailored to the unique needs of our campus community.We believe that a healthy body and mind are the foundation of academic success, and we strive to make healthcare accessible, inclusive, and responsive for all our students. Your health is not just our duty it’s our mission.",
+  img: heroBg,
+  logo: logo,
+  btntext: "Learn More",
   videos: [
     // { //imgsrc: vcover1, clip: clip },
     // { //imgsrc: vcover2, clip: clip },
@@ -77,6 +85,37 @@ const aboutData = {
   text: "Thrifty is the community-powered fashion ecosystem that’s kinder on the planet and kinder to people. We want to build the world’s most progressive and diverse home for fashion – a place to explore unique fashion and be part of a community-driven zeitgeist that’s shaping culture for the better. This is a place where anyone should feel safe to show up as their full selves and feel good about the style choices they make.",
   // //img: about,
 };
+const servicesData = [
+  {
+    id: 1,
+    title: 'Ambulance Tracking',
+    description: 'Stay informed with our real-time ambulance tracking system. Whether it’s an emergency or a scheduled transport, you can monitor the ambulance location and arrival time to ensure prompt medical attention.',
+    icon: service1, 
+    w:125
+  },
+  {
+    id: 2,
+    title: 'Pharmacy Delivery',
+    description: 'Get your prescriptions delivered right to your doorstep. Our pharmacy delivery service ensures you have access to the medications you need without leaving the comfort of your hostel.',
+    icon: service2,
+    w:125
+  },
+  {
+    id: 3,
+    title: 'Isolation Alerts',
+    description: 'In the event of illness, our isolation alert system keeps you informed of necessary precautions and support services, ensuring your safety and the well-being of the entire campus.',
+    icon: service4,
+    w:125
+  },
+  {
+    id: 4,
+    title: 'Patient Information Sharing',
+    description: 'We are committed to making healthcare accessible to everyone, including those with impairments. Our services are designed to be inclusive, ensuring that all students receive the care they deserve.',
+    icon: service3,
+    w:125
+  },
+];
+
 const homePopular = {
   title: "Popular on Thrifty",
   items:[
@@ -531,4 +570,4 @@ const footerAPI = {
 };
 
 
-export { heroapi, footerAPI, story, sneaker, highlight, toprateslaes, popularsales, aboutData, homePopular, homeTopSearches, homeStreatSmart };
+export { heroapi, servicesData, footerAPI, story, sneaker, highlight, toprateslaes, popularsales, aboutData, homePopular, homeTopSearches, homeStreatSmart };

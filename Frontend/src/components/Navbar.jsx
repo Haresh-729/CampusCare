@@ -1,74 +1,102 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = ({ heroapi }) => {
   const dispatch = useDispatch();
-  
+  const location = useLocation(); // Get the current path
   const [navstate, setNavState] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const onNavScroll = () => {
-    if(window.scrollY > 30){
+    if (window.scrollY > 30) {
       setNavState(true);
-    }else{
+    } else {
       setNavState(false);
     }
   }
-  useEffect(() =>{
+
+  useEffect(() => {
     window.addEventListener('scroll', onNavScroll);
-    return() => {
-      window.removeEventListener('scroll', onNavScroll)
-    }
+    return () => {
+      window.removeEventListener('scroll', onNavScroll);
+    };
   }, []);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/register/false")
+    navigate("/register/false");
   }
   const handelRegister = () => {
-    navigate("/register/true")
+    navigate("/register/true");
   }
   const hC = () => {
-    navigate("/")
+    navigate("/");
   }
-  return (
-    <>
-      <header className={!navstate ? "absolute top-7 left-0 right-0 opacity-100 z-50" : "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-[200] transition-all duration-300 bg-[#f7cbbc7a]"}>
-        <nav className="flex items-center justify-between thrift-container">
-          <div className="flex items-center">
-            <img src={"#"} alt="logo/img" className={`h-auto w-[8rem]`} />
-          </div>
-          <div className="flex-row gap-5 text-black ">
-            <span className=" mx-[1rem]" onClick={hC}>
-              <Link className="text-black font-bold text-[1rem]" smooth duration={500}>
-                Home
-              </Link> 
-            </span>
-            <span className=" mx-[1rem]"> 
-              <Link to="About" className="text-black  hover:text-[#213547] font-bold text-[1rem]" smooth duration={500}>
-                About
-              </Link> 
-            </span>
-            <span className=" mx-[1rem]">
-              <Link to="Services" className="text-black hover:text-[#213547] font-bold text-[1rem]" smooth duration={500}>
-                Services
-              </Link> 
-            </span>
-            <span className=" mx-[1rem]">
-              <Link to="Footers" className="text-black hover:text-[#213547] font-bold text-[1rem]" smooth duration={500}>
-                Contact
-              </Link> 
-            </span>
-            <button className="hover:bg-[#213547] font-serif font-bold bg-[#f7cbbc] mx-[1rem] hover:text-[#f7cbbc] text-[#213547]" onClick={handleClick}>
-              Login
-            </button>
-            <button className="bg-[#213547] font-serif font-bold hover:bg-[#f7cbbc] mx-[1rem] text-[#f7cbbc] hover:text-[#213547]" onClick={handelRegister}>
-              Register
-            </button>
-        </div>
-        </nav>
-      </header>
-    </>
-  )
-}
 
-export default Navbar
+  return (
+    <header className={`${navstate ? 'fixed bg-white shadow-lg' : 'absolute'} w-full top-0 z-50 transition-all duration-300`}>
+      <nav className="flex justify-between items-center p-5 lg:px-10">
+        <div>
+          <Link to="/" className="flex items-center gap-2">
+            <img src={heroapi.logo} alt="CampusCare" className="w-10 h-auto" />
+            <span className="text-dark-blue font-bold text-xl">CampusCare</span>
+          </Link>
+        </div>
+        <div className="hidden lg:flex space-x-6 items-center">
+          <Link to="/" className={`${location.pathname === "/" ? "text-yellow" : "text-dark-blue"} font-bold hover:text-yellow`}>
+            Home
+          </Link>
+          <Link to="/about" className={`${location.pathname === "/about" ? "text-yellow" : "text-dark-blue"} font-bold hover:text-yellow`}>
+            About
+          </Link>
+          <Link to="/services" className={`${location.pathname === "/services" ? "text-yellow" : "text-dark-blue"} font-bold hover:text-yellow`}>
+            Services
+          </Link>
+          <Link to="/contact" className={`${location.pathname === "/contact" ? "text-yellow" : "text-dark-blue"} font-bold hover:text-yellow`}>
+            Contact
+          </Link>
+          <Link to="/login">
+            <button className="bg-dark-blue text-white px-4 rounded-3xl hover:bg-yellow">Login</button>
+          </Link>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <div className="lg:hidden">
+          <button onClick={toggleMobileMenu}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div className={`${mobileMenuOpen ? 'block' : 'hidden'} lg:hidden bg-white shadow-lg absolute w-full z-40`}>
+        <div className="flex flex-col items-center py-4 space-y-4">
+          <Link to="/" className={`${location.pathname === "/" ? "text-yellow" : "text-black"} font-bold hover:text-yellow`}>
+            Home
+          </Link>
+          <Link to="/about" className={`${location.pathname === "/about" ? "text-yellow" : "text-black"} font-bold hover:text-yellow`}>
+            About
+          </Link>
+          <Link to="/services" className={`${location.pathname === "/services" ? "text-yellow" : "text-black"} font-bold hover:text-yellow`}>
+            Services
+          </Link>
+          <Link to="/contact" className={`${location.pathname === "/contact" ? "text-yellow" : "text-black"} font-bold hover:text-yellow`}>
+            Contact
+          </Link>
+          <Link to="/login">
+            <button className="bg-dark-blue border-none text-white px-4 rounded-3xl hover:bg-yellow">Login</button>
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
