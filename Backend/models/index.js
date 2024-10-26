@@ -26,6 +26,4 @@ db.Departments = require('./student/department')(sequelize, Sequelize);
 db.Students = require('./student/student')(sequelize, Sequelize);
 db.Parents = require('./student/parents')(sequelize, Sequelize);
 
-
-
 module.exports = db;

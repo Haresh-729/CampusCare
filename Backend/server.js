@@ -9,7 +9,6 @@ const hospitalRoutes = require('./routes/hospital/hospitalRoutes');
 const studentRoutes = require('./routes/student/studentRoutes');
 
 
-
 const app = express();
 
 
