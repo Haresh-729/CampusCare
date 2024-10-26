@@ -14,7 +14,7 @@ db.sequelize.sync().then(() => { //{ alter: true } force: true - drop existing a
   console.log('Error connecting to the database', error);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
