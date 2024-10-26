@@ -32,14 +32,14 @@ module.exports = (sequelize, DataTypes) => {
       },
       doctor_user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Users', // References the Users table for the doctor
           key: 'user_id',
         },
         onDelete: 'SET NULL', // Set to NULL if the doctor is deleted
       },
-      is_active: {
+      is_confirmed: {
         type: DataTypes.BOOLEAN, // 0 for inactive, 1 for active
         allowNull: false,
         defaultValue: true, // Default to active
